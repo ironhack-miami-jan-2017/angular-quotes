@@ -1,0 +1,8 @@
+<h2> Quotes </h2>
+
+<ul>
+  <li *ngFor="let oneQuote of quotes">
+    <app-quote-item [quote]="oneQuote" (onDelete)="removeQuote($event)">
+    </app-quote-item>
+  </li>
+</ul>

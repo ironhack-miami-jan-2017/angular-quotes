@@ -7,14 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
-
-  quoteA = {
-    text: 'I love fries.',
-    author: 'Neil Armstrong'
-  };
-
-  quoteB = {
-    text: 'Stay thirsty, my friends. Dos Equis.',
-    author: 'Most Interesting Man In The World'
-  };
 }
