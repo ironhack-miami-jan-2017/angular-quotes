@@ -13,6 +13,8 @@ import { ContactListComponent } from './contact-list/contact-list.component';
 import { ContactComponent } from './contact/contact.component';
 import { CountersComponent } from './counters/counters.component';
 import { MyCounterComponent } from './my-counter/my-counter.component';
+import { MySecondCounterComponent } from './my-second-counter/my-second-counter.component';
+import { CounterService } from './my-services/counter.service';
 
 const routes: Routes = [
     // http://localhost:4200/quotes
@@ -46,7 +48,8 @@ const routes: Routes = [
     ContactListComponent,
     ContactComponent,
     CountersComponent,
-    MyCounterComponent
+    MyCounterComponent,
+    MySecondCounterComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,7 @@ const routes: Routes = [
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [CounterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
