@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { CharactersService } from '../characters.service';
+
 @Component({
   selector: 'app-contact-list',
   templateUrl: './contact-list.component.html',
@@ -8,18 +10,30 @@ import { Router } from '@angular/router';
 })
 export class ContactListComponent implements OnInit {
 
-  contacts: Array<Object> = [
-    { id: 100, name: 'Andy' },
-    { id: 201, name: 'George' },
-    { id: 302, name: 'Max' }
-  ];
+  contacts: Array<Object> = [];
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private myService: CharactersService
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.fetchChars();
+  }
 
   viewDetails(id) {
     this.router.navigate(['contact', id]);
+  }
+
+  fetchChars () {
+    this.myService.fetchCharacters()
+      .then((charactersList) => {
+        this.contacts = charactersList;
+      })
+      .catch((err) => {
+        console.log('Fetch Characters error.')
+        console.log(err);
+      });
   }
 
 }
