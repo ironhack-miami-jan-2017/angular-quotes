@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class JokesService {
 
-  constructor() { }
+  constructor(private myHttp: Http) { }
 
   getRandom() {
-    return 'Chuck Norris was bitten by a cobra and after five days of excruciating pain... the cobra died.'
+    return this.myHttp.get('http://api.icndb.com/jokes/random')
+      .toPromise()
+      .then(result => result.json())
   }
 
 }
