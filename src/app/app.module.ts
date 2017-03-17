@@ -15,6 +15,7 @@ import { CountersComponent } from './counters/counters.component';
 import { MyCounterComponent } from './my-counter/my-counter.component';
 import { MySecondCounterComponent } from './my-second-counter/my-second-counter.component';
 import { CounterService } from './my-services/counter.service';
+import { ChuckNorrisPageComponent } from './chuck-norris-page/chuck-norris-page.component';
 
 const routes: Routes = [
     // http://localhost:4200/quotes
@@ -35,7 +36,9 @@ const routes: Routes = [
 
   { path: 'contact/:id', component: ContactComponent },
 
-  { path: 'counters', component: CountersComponent }
+  { path: 'counters', component: CountersComponent },
+
+  { path: 'chuck', component: ChuckNorrisPageComponent }
 ];
 
 @NgModule({
@@ -49,7 +52,8 @@ const routes: Routes = [
     ContactComponent,
     CountersComponent,
     MyCounterComponent,
-    MySecondCounterComponent
+    MySecondCounterComponent,
+    ChuckNorrisPageComponent
   ],
   imports: [
     BrowserModule,
